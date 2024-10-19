@@ -1,0 +1,2 @@
+ALTER TABLE books
+    ADD COLUMN IF NOT EXISTS book_type VARCHAR(100) DEFAULT 'standard'

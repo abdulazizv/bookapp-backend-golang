@@ -1,0 +1,39 @@
+variables:
+  IMAGE_NAME: murtazoxon/bookapp
+  IMAGE_TAG: latest
+
+
+stages:
+  - build
+  - deploy
+
+build-image:
+  stage: build
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  before_script:
+    - echo "$REGISTRY_PASS" | docker login -u $REGISTRY_USER -p $REGISTRY_PASS
+  script:
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+    - docker push $IMAGE_NAME:$IMAGE_TAG
+  only:
+    - prod
+
+
+deploy:
+  stage: deploy
+  before_script:
+   - chmod 600 $SSH_KEY
+
+  script:
+   - ssh -o StrictHostKeyChecking=no -i $SSH_KEY $SERVER_USER@$SERVER_IP "
+        docker login -u $REGISTRY_USER -p $REGISTRY_PASS && 
+        docker stop | bookapp|  true &&
+        docker rm bookapp || true &&
+        docker image rm $IMAGE_NAME || true &&
+        docker run --name bookapp -d -p 8181:8181 $IMAGE_NAME:$IMAGE_TAG"
+  only:
+    - prod

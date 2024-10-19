@@ -1,0 +1,64 @@
+p, unauthorized, /v1/swagger/*, GET
+p, superadmin, /v1/*, POST
+p, superadmin, /v1/*, GET
+p, superadmin, /v1/*, PUT
+p, superadmin, /v1/*, DELETE
+
+g, user, unauthorized
+g, admin, unauthorized
+p, unauthorized, /, GET
+p, unauthorized, /v1/store/upload, POST
+p, unauthorized, /v1/store/{filename}, GET
+
+p, admin, /v1/category/, POST
+p, unauthorized, /v1/category/{id}, GET
+p, unauthorized, /v1/category/list, GET
+p, unauthorized, /v1/category/books, GET
+p, admin, /v1/category/, PUT
+p, admin, /v1/category/{id}, DELETE
+
+p, admin, /v1/subcategory/, POST
+p, unauthorized, /v1/subcategory/{id}, GET
+p, unauthorized, /v1/subcategory/, GET
+p, admin, /v1/subcategory/, PUT
+p, admin, /v1/subcategory/{id}, DELETE
+
+p, admin, /v1/book/, POST
+p, unauthorized, /v1/book/{id}, GET
+p, unauthorized, /v1/book/search, GET
+p, unauthorized, /v1/book/top, GET
+p, unauthorized, /v1/book/mostread, GET
+p, unauthorized, /v1/book/filter, GET
+p, unauthorized, /v1/book/audios, GET
+p, admin, /v1/book/, PUT
+p, admin, /v1/book/{id}, DELETE
+p, user, /v1/book/like, POST
+p, user, /v1/book/like, DELETE
+
+p, user, /v1/comment/post, POST
+p, user, /v1/comment/put, PUT
+p, user, /v1/comment/{id}, DELETE
+
+p, unauthorized, /v1/client/register, POST
+p, unauthorized, /v1/client/login, POST
+p, user, /v1/client/{id}, GET
+p, user, /v1/client/update, PUT
+p, user, /v1/client/{id}, DELETE
+
+p, admin, /v1/author/, POST
+p, unauthorized, /v1/author/{id}, GET
+p, unauthorized, /v1/author/list, GET
+p, admin, /v1/author/, PUT
+p, admin, /v1/author/{id}, DELETE
+
+p, superadmin, /v1/admin/, POST
+p, unauthorized, /v1/admin/login, POST
+p, superadmin, /v1/admin/{id}, DELETE
+p, superadmin, /v1/admin/, GET
+
+p, unauthorized, /v1/superadmin/login, POST
+p, unauthorized, /v1/superadmin/, POST
+
+p, admin, /v1/statistic, GET
+p, admin, /v1/statistic/category/bookcount, GET
+p, admin, /v1/statistic/week/bookcount, GET

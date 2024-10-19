@@ -1,0 +1,4 @@
+ALTER TABLE books
+    DROP COLUMN IF EXISTS image,
+    DROP COLUMN IF EXISTS title,
+    DROP COLUMN IF EXISTS description;

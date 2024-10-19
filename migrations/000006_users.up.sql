@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL NOT NULL PRIMARY KEY,
+    role_id INT,
+    full_name VARCHAR,
+    avatar_url VARCHAR,
+    login VARCHAR,
+    password VARCHAR,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+)
+

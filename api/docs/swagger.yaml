@@ -1,0 +1,2509 @@
+basePath: /v1
+definitions:
+  http.Response:
+    properties:
+      data: {}
+      description:
+        type: string
+      status:
+        type: string
+    type: object
+  models.AddedBooks:
+    properties:
+      book_count:
+        type: integer
+      week_date:
+        type: string
+    type: object
+  models.AuthorForList:
+    properties:
+      avatar_url:
+        type: string
+      birth_day:
+        type: string
+      book_count:
+        type: integer
+      died_year:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+    type: object
+  models.AuthorReq:
+    properties:
+      about_text:
+        type: string
+      avatar_url:
+        type: string
+      birth_day:
+        example: "1960-02-15"
+        type: string
+      country:
+        type: string
+      creativity:
+        type: string
+      died_year:
+        example: "2000-03-24"
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      middle_name:
+        type: string
+    type: object
+  models.AuthorRes:
+    properties:
+      about_text:
+        type: string
+      avatar_url:
+        type: string
+      birth_day:
+        example: "1960-02-15"
+        type: string
+      books:
+        items:
+          $ref: '#/definitions/models.BooksForList'
+        type: array
+      country:
+        type: string
+      created_at:
+        type: string
+      creativity:
+        type: string
+      died_year:
+        example: "2000-03-24"
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      middle_name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.AuthorUpdateReq:
+    properties:
+      about_text:
+        type: string
+      avatar_url:
+        type: string
+      birth_day:
+        example: "1960-02-15"
+        type: string
+      country:
+        type: string
+      creativity:
+        type: string
+      died_year:
+        example: "2000-03-24"
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      middle_name:
+        type: string
+    type: object
+  models.Authors:
+    properties:
+      _meta:
+        $ref: '#/definitions/models.Meta'
+      authors:
+        items:
+          $ref: '#/definitions/models.AuthorForList'
+        type: array
+    type: object
+  models.BookReq:
+    properties:
+      audio_url:
+        type: string
+      author_id:
+        type: integer
+      book_type:
+        example: standard
+        type: string
+      category_id:
+        type: integer
+      description:
+        type: string
+      download_url:
+        type: string
+      image:
+        type: string
+      sub_category_id:
+        type: integer
+      title:
+        type: string
+    type: object
+  models.BookRes:
+    properties:
+      audio_url:
+        type: string
+      author_id:
+        type: integer
+      book_type:
+        type: string
+      category_id:
+        type: integer
+      created_at:
+        type: string
+      description:
+        type: string
+      download_url:
+        type: string
+      id:
+        type: integer
+      image:
+        type: string
+      sub_category_id:
+        type: integer
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.BookResponse:
+    properties:
+      audio_url:
+        type: string
+      author_first_name:
+        type: string
+      author_id:
+        type: integer
+      author_last_name:
+        type: string
+      book_type:
+        type: string
+      category_id:
+        type: integer
+      comment_count:
+        type: integer
+      comments:
+        items:
+          $ref: '#/definitions/models.CommentResponse'
+        type: array
+      created_at:
+        type: string
+      description:
+        type: string
+      download_url:
+        type: string
+      id:
+        type: integer
+      image:
+        type: string
+      is_like:
+        type: boolean
+      like_count:
+        type: integer
+      similar_books:
+        items:
+          $ref: '#/definitions/models.BooksForList'
+        type: array
+      sub_category_id:
+        type: integer
+      title:
+        type: string
+      updated_at:
+        type: string
+      view_count:
+        type: integer
+    type: object
+  models.BookUpdate:
+    properties:
+      audio_url:
+        type: string
+      book_type:
+        type: string
+      description:
+        type: string
+      download_url:
+        type: string
+      id:
+        type: integer
+      image:
+        type: string
+      title:
+        type: string
+    type: object
+  models.Books:
+    properties:
+      _meta:
+        $ref: '#/definitions/models.Meta'
+      books:
+        items:
+          $ref: '#/definitions/models.BooksForList'
+        type: array
+    type: object
+  models.BooksAudioList:
+    properties:
+      audio_url:
+        type: string
+      author_first_name:
+        type: string
+      author_id:
+        type: integer
+      author_last_name:
+        type: string
+      book_type:
+        type: string
+      category_id:
+        type: integer
+      id:
+        type: integer
+      image:
+        type: string
+      like_count:
+        type: integer
+      sub_category_id:
+        type: integer
+      title:
+        type: string
+      view_count:
+        type: integer
+    type: object
+  models.BooksAudios:
+    properties:
+      _meta:
+        $ref: '#/definitions/models.Meta'
+      books:
+        items:
+          $ref: '#/definitions/models.BooksAudioList'
+        type: array
+    type: object
+  models.BooksForList:
+    properties:
+      author_first_name:
+        type: string
+      author_id:
+        type: integer
+      author_last_name:
+        type: string
+      book_type:
+        type: string
+      category_id:
+        type: integer
+      id:
+        type: integer
+      image:
+        type: string
+      like_count:
+        type: integer
+      sub_category_id:
+        type: integer
+      title:
+        type: string
+      view_count:
+        type: integer
+    type: object
+  models.CategoryBookCount:
+    properties:
+      book_count:
+        type: integer
+      category_name:
+        type: string
+    type: object
+  models.CategoryReq:
+    properties:
+      category_name:
+        type: string
+      status:
+        type: boolean
+    type: object
+  models.CategoryResp:
+    properties:
+      category_name:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: integer
+      status:
+        type: boolean
+      subcategories:
+        items:
+          $ref: '#/definitions/models.SubCategoryRes'
+        type: array
+      updated_at:
+        type: string
+    type: object
+  models.CategoryResponse:
+    properties:
+      _meta:
+        $ref: '#/definitions/models.Meta'
+      books:
+        items:
+          $ref: '#/definitions/models.BooksForList'
+        type: array
+      category_name:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: integer
+      status:
+        type: boolean
+      updated_at:
+        type: string
+    type: object
+  models.CategoryUpdateReq:
+    properties:
+      category_name:
+        type: string
+      id:
+        type: integer
+    type: object
+  models.CommentReq:
+    properties:
+      book_id:
+        type: integer
+      text:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  models.CommentRes:
+    properties:
+      book_id:
+        type: integer
+      created_at:
+        type: string
+      id:
+        type: integer
+      text:
+        type: string
+      updated_at:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  models.CommentResponse:
+    properties:
+      book_id:
+        type: integer
+      created_at:
+        type: string
+      id:
+        type: integer
+      text:
+        type: string
+      updated_at:
+        type: string
+      user:
+        $ref: '#/definitions/models.UserResForComment'
+      user_id:
+        type: integer
+    type: object
+  models.CommentUpdate:
+    properties:
+      id:
+        type: integer
+      text:
+        type: string
+    type: object
+  models.DefaultResponse:
+    properties:
+      error_code:
+        type: integer
+      error_message:
+        type: string
+    type: object
+  models.FileResponse:
+    properties:
+      file_url:
+        type: string
+    type: object
+  models.LikeReq:
+    properties:
+      book_id:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+  models.LoginReq:
+    properties:
+      login:
+        type: string
+      password:
+        type: string
+    type: object
+  models.Meta:
+    properties:
+      current_page:
+        type: integer
+      page_count:
+        type: integer
+      per_page:
+        type: integer
+      total_count:
+        type: integer
+    type: object
+  models.StatisticCount:
+    properties:
+      author:
+        type: string
+      author_count:
+        type: integer
+      book:
+        type: string
+      book_count:
+        type: integer
+      top_book:
+        type: string
+      top_book_count:
+        type: integer
+      user:
+        type: string
+      user_count:
+        type: integer
+    type: object
+  models.SubCategoryReq:
+    properties:
+      category_id:
+        type: integer
+      subcategory_name:
+        type: string
+    type: object
+  models.SubCategoryRes:
+    properties:
+      _meta:
+        $ref: '#/definitions/models.Meta'
+      books:
+        items:
+          $ref: '#/definitions/models.BooksForList'
+        type: array
+      category_id:
+        type: integer
+      created_at:
+        type: string
+      id:
+        type: integer
+      subcategory_name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.SubCategoryUpdate:
+    properties:
+      id:
+        type: integer
+      subcategory_name:
+        type: string
+    type: object
+  models.Success:
+    properties:
+      message:
+        type: string
+    type: object
+  models.UserLoginRes:
+    properties:
+      access_token:
+        type: string
+      avatar_url:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: integer
+      login:
+        type: string
+      password:
+        type: string
+      role_id:
+        type: integer
+    type: object
+  models.UserReq:
+    properties:
+      avatar_url:
+        example: https://shorturl.at/akpDK
+        type: string
+      full_name:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+      refresh_token:
+        type: string
+      role_id:
+        example: 3
+        type: integer
+    type: object
+  models.UserRes:
+    properties:
+      avatar_url:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: integer
+      like_books:
+        items:
+          $ref: '#/definitions/models.BooksForList'
+        type: array
+      login:
+        type: string
+    type: object
+  models.UserResForComment:
+    properties:
+      avatar_url:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: integer
+    type: object
+  models.UserUpdateReq:
+    properties:
+      avatar_url:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: integer
+      login:
+        type: string
+      password:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is a sample server celler server.
+  termsOfService: http://swagger.io/terms/
+  title: Book store API
+  version: "1.0"
+paths:
+  /admin:
+    get:
+      consumes:
+      - application/json
+      description: Here admin will be get
+      operationId: getadmins
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Admin data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserResForComment'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Get all admins
+      tags:
+      - Admin
+    post:
+      consumes:
+      - application/json
+      description: Here admin will be added, should enter 2 for role_id
+      operationId: addadmin
+      parameters:
+      - description: AddAdmin
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Admin data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserLoginRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: add admin
+      tags:
+      - Admin
+  /admin/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Here admin can delete info
+      operationId: deleteadmin
+      parameters:
+      - description: DeleteAdmin
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: delete admin
+      tags:
+      - Admin
+  /admin/login:
+    post:
+      consumes:
+      - application/json
+      description: Here admin can login
+      operationId: loginadmin admin
+      parameters:
+      - description: LoginAdmin
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserLoginRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: login admin
+      tags:
+      - Admin
+  /author:
+    post:
+      consumes:
+      - application/json
+      description: Here author can update info
+      operationId: createauthor
+      parameters:
+      - description: AuthorCreate
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.AuthorReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Author data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.AuthorRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: create author
+      tags:
+      - Author
+    put:
+      consumes:
+      - application/json
+      description: Here author can update info
+      operationId: updateauthor
+      parameters:
+      - description: UpdateAuthor
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.AuthorUpdateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Author data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.AuthorRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: put author
+      tags:
+      - Author
+  /author/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Here author can DELETE info
+      operationId: deleteauthor
+      parameters:
+      - description: DELETEAuthor
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Author delete
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: DELETE author
+      tags:
+      - Author
+    get:
+      consumes:
+      - application/json
+      description: Here author can get info
+      operationId: getauthor
+      parameters:
+      - description: GetAuthor
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Author data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.AuthorRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET author
+      tags:
+      - Author
+  /author/list:
+    get:
+      consumes:
+      - application/json
+      description: Here author can get info
+      operationId: getauthors
+      parameters:
+      - description: LIMIT
+        in: query
+        name: limit
+        type: integer
+      - description: PAGE_NUMBER
+        in: query
+        name: page
+        type: integer
+      - description: SEARCH
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Author data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Authors'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET author
+      tags:
+      - Author
+  /book:
+    post:
+      consumes:
+      - application/json
+      description: Here books will be created.
+      parameters:
+      - description: Create
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.BookReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.BookRes'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      security:
+      - BearerAuth: []
+      summary: create books
+      tags:
+      - Book
+    put:
+      consumes:
+      - application/json
+      description: Update Book
+      operationId: updatebook
+      parameters:
+      - description: UpdateBook
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.BookUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Books data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.BookRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Update Book
+      tags:
+      - Book
+  /book/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Category
+      operationId: deletebook
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Success'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Delete Category
+      tags:
+      - Book
+    get:
+      consumes:
+      - application/json
+      description: Here get by books.
+      operationId: getbook
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Book data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.BookResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: get books
+      tags:
+      - Book
+  /book/audios:
+    get:
+      consumes:
+      - application/json
+      description: GET audios of books
+      operationId: getbookaudios
+      parameters:
+      - description: LIMIT
+        in: query
+        name: limit
+        type: string
+      - description: PAGE_NUMBER
+        in: query
+        name: page
+        type: string
+      - description: SEARCH
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Books data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.BooksAudios'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET audios
+      tags:
+      - Book
+  /book/filter:
+    get:
+      consumes:
+      - application/json
+      description: GET Books
+      operationId: getbooks
+      parameters:
+      - description: LIMIT
+        in: query
+        name: limit
+        type: integer
+      - description: PAGE_NUMBER
+        in: query
+        name: page
+        type: integer
+      - description: SEARCH_KEY
+        in: query
+        name: search
+        type: string
+      - description: CATEGORY_ID
+        in: query
+        name: category_id
+        type: integer
+      - description: SUBCATEGORY_ID
+        in: query
+        name: subcategory_id
+        type: integer
+      - description: AUTHOR_ID
+        in: query
+        name: author_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Books data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Books'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET Books
+      tags:
+      - Book
+  /book/like:
+    delete:
+      consumes:
+      - application/json
+      description: Here books will be delete like.
+      parameters:
+      - description: DeleteLike
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.LikeReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: DeletedLike
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      security:
+      - BearerAuth: []
+      summary: delete book like
+      tags:
+      - Book
+    post:
+      consumes:
+      - application/json
+      description: Here books will be created like.
+      parameters:
+      - description: CreateLike
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.LikeReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: CreatedLike
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      security:
+      - BearerAuth: []
+      summary: create book like
+      tags:
+      - Book
+  /book/mostread:
+    get:
+      consumes:
+      - application/json
+      description: GET list of most read books
+      operationId: getbookmostread
+      parameters:
+      - description: LIMIT
+        in: query
+        name: limit
+        type: string
+      - description: PAGE_NUMBER
+        in: query
+        name: page
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Books data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Books'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET most read books
+      tags:
+      - Book
+  /book/search:
+    get:
+      consumes:
+      - application/json
+      description: GET Books
+      operationId: getbooklist
+      parameters:
+      - description: LIMIT
+        in: query
+        name: limit
+        type: integer
+      - description: PAGE_NUMBER
+        in: query
+        name: page
+        type: integer
+      - description: SEARCH_KEY
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Books data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Books'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET Books
+      tags:
+      - Book
+  /book/top:
+    get:
+      consumes:
+      - application/json
+      description: GET TOP books
+      operationId: getbooksearch
+      parameters:
+      - description: LIMIT
+        in: query
+        name: limit
+        type: string
+      - description: PAGE_NUMBER
+        in: query
+        name: page
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Books data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Books'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET TOP Books
+      tags:
+      - Book
+  /category:
+    post:
+      consumes:
+      - application/json
+      description: Here category will be created.
+      parameters:
+      - description: Create
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.CategoryReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.CategoryResp'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      security:
+      - BearerAuth: []
+      summary: create category
+      tags:
+      - Category
+    put:
+      consumes:
+      - application/json
+      description: Update Category
+      operationId: updatecategory
+      parameters:
+      - description: UpdateCategory
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.CategoryUpdateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.CategoryResp'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Update Category
+      tags:
+      - Category
+  /category/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Category
+      operationId: deletecategory
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Success'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Delete Category
+      tags:
+      - Category
+    get:
+      consumes:
+      - application/json
+      description: Here get by category.
+      operationId: getcategory
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.CategoryResp'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: get category
+      tags:
+      - Category
+  /category/books:
+    get:
+      consumes:
+      - application/json
+      description: Get all books by categoryId.
+      operationId: getcategoryid
+      parameters:
+      - description: id
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: LIMIT
+        in: query
+        name: limit
+        type: integer
+      - description: PAGE_NUMBER
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.CategoryResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: get category
+      tags:
+      - Category
+  /category/list:
+    get:
+      consumes:
+      - application/json
+      description: Here category will be get.
+      operationId: getcategories
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.CategoryResp'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: get category
+      tags:
+      - Category
+  /client/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Here user can delete info
+      operationId: deleteuser user
+      parameters:
+      - description: DeleteUser
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: delete user
+      tags:
+      - User
+    get:
+      consumes:
+      - application/json
+      description: Here user can get
+      operationId: getuser user
+      parameters:
+      - description: GetUser
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: get user
+      tags:
+      - User
+  /client/login:
+    post:
+      consumes:
+      - application/json
+      description: Here user can login
+      operationId: loginuser user
+      parameters:
+      - description: LoginUser
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Login
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserLoginRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: login user
+      tags:
+      - User
+  /client/register:
+    post:
+      consumes:
+      - application/json
+      description: Here user can register
+      operationId: register user
+      parameters:
+      - description: RegisterUser
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: User data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserLoginRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: register user
+      tags:
+      - User
+  /client/update:
+    put:
+      consumes:
+      - application/json
+      description: Here user can update info
+      operationId: updateuser user
+      parameters:
+      - description: UpdateUser
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserUpdateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: update user
+      tags:
+      - User
+  /comment/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Here comment will be delete.
+      parameters:
+      - description: Delete
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      security:
+      - BearerAuth: []
+      summary: delete comment
+      tags:
+      - Comment
+  /comment/post:
+    post:
+      consumes:
+      - application/json
+      description: Here comments will be created.
+      parameters:
+      - description: Create
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.CommentReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.CommentRes'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      security:
+      - BearerAuth: []
+      summary: create comment
+      tags:
+      - Comment
+  /comment/put:
+    put:
+      consumes:
+      - application/json
+      description: Here comment will be updated.
+      parameters:
+      - description: Update
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.CommentUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CommentRes'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      security:
+      - BearerAuth: []
+      summary: update comment
+      tags:
+      - Comment
+  /statistic:
+    get:
+      consumes:
+      - application/json
+      description: Here get by parametrs count.
+      operationId: getcounts
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: parametrs  Count
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.StatisticCount'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: get parametrs count
+      tags:
+      - Statistic
+  /statistic/category/bookcount:
+    get:
+      consumes:
+      - application/json
+      description: Here get by get category book count.
+      operationId: getcategorybookcount
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: category book  Count
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.CategoryBookCount'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: get category book count
+      tags:
+      - Statistic
+  /statistic/week/bookcount:
+    get:
+      consumes:
+      - application/json
+      description: Here get by get week book count.
+      operationId: getweekbookcount
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Week book  count
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.AddedBooks'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: get week book count
+      tags:
+      - Statistic
+  /store/upload:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Here admin can be logged in.
+      parameters:
+      - description: File
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.FileResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      summary: Upload file
+      tags:
+      - MediaFile
+  /subcategory:
+    post:
+      consumes:
+      - application/json
+      description: Here category will be created.
+      parameters:
+      - description: Create
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.SubCategoryReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SubCategoryRes'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DefaultResponse'
+      security:
+      - BearerAuth: []
+      summary: create subcategory
+      tags:
+      - Subcategory
+    put:
+      consumes:
+      - application/json
+      description: Update Subcategory
+      operationId: Subcategory
+      parameters:
+      - description: SubCategoryUpdate
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.SubCategoryUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Subcategory data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.SubCategoryRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Update Subcategory
+      tags:
+      - Subcategory
+  /subcategory/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete subcategory
+      operationId: deletesubcategory
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Success'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Delete subcategory
+      tags:
+      - Subcategory
+    get:
+      consumes:
+      - application/json
+      description: Here get by subcategory.
+      operationId: getsubcategory
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: LIMIT
+        in: query
+        name: limit
+        type: integer
+      - description: PAGE_NUMBER
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: subcategory data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.SubCategoryRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: get subcategory
+      tags:
+      - Subcategory
+  /superadmin:
+    post:
+      consumes:
+      - application/json
+      description: Here superadmin will be added, should enter 1 for role_id
+      operationId: addsuperadmin
+      parameters:
+      - description: AddSuperAdmin
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Admin data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserLoginRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: add superadmin
+      tags:
+      - Superadmin
+  /superadmin/login:
+    post:
+      consumes:
+      - application/json
+      description: Here superadmin can login
+      operationId: loginsuperadmin
+      parameters:
+      - description: LoginSuperAdmin
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: SuperadminLogin
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.UserLoginRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: login superadmin
+      tags:
+      - Superadmin
+securityDefinitions:
+  BasicAuth:
+    type: basic
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

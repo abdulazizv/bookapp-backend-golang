@@ -1,0 +1,4 @@
+ALTER TABLE author
+    ADD COLUMN IF NOT EXISTS about_text TEXT,
+    ADD COLUMN IF NOT EXISTS creativity TEXT,
+    ADD COLUMN IF NOT EXISTS died_year  DATE;
